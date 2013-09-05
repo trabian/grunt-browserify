@@ -39,6 +39,10 @@ module.exports = function (grunt) {
         grunt.fail.warn(err);
       });
 
+      b.on('browserify.dep', function (dep) {
+        grunt.event.emit('dep', dep);
+      });
+
       if (opts.ignore) {
         grunt.file.expand({nonull: true}, grunt.util._.flatten(opts.ignore))
           .forEach(function (file) {
