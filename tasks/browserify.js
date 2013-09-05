@@ -39,8 +39,8 @@ module.exports = function (grunt) {
         grunt.fail.warn(err);
       });
 
-      b.on('browserify.dep', function (dep) {
-        grunt.event.emit('dep', dep);
+      b.on('dep', function (dep) {
+        grunt.event.emit('browserify.dep', dep);
       });
 
       if (opts.ignore) {
